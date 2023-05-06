@@ -6,7 +6,13 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:34:08 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/04/13 15:34:09 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:53:21 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+class Bureaucrat
+{
+    
+    private:
+
+};
