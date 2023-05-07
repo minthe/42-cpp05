@@ -6,12 +6,12 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 12:25:53 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:40:58 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <exception>
 #include <iostream>
-#include <stdexcept>
 
 class Bureaucrat
 {
@@ -22,6 +22,24 @@ class Bureaucrat
 		~Bureaucrat();
 
 		Bureaucrat(const std::string name);
+
+		class GradeTooHighException : public std::exception // TODO is it ok to implement the virtual function here?
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("GradeTooHighException");
+				}
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("GradeTooHighException");
+				}
+		};
 
 		std::string	getName() const;
 		int			getGrade() const;

@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 12:30:37 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:40:29 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ void		Bureaucrat::incGrade() // TODO add exceptions
 {
 	if (_grade > 1)
 		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void		Bureaucrat::decGrade() // TODO add exceptions
 {
 	if (_grade < 150)
 		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
