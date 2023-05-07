@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:04:49 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:31:31 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:44:16 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main()
 	{
 		bob->incGrade();
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (Bureaucrat::GradeTooHighException& ex)
 	{
-		std::cout << "\x1b[31mGradeTooHighException\x1b[0m" << std::endl;
+		std::cerr << "Exception caught: " << ex.what() << std::endl;
 	}
 
 	std::cout << "after \"incGrade\": " << *bob << std::endl;
@@ -34,9 +34,9 @@ int	main()
 	{
 		bob->decGrade();
 	}
-	catch (Bureaucrat::GradeTooLowException& e)
+	catch (Bureaucrat::GradeTooLowException& ex)
 	{
-		std::cout << "\x1b[31mGradeTooLowException\x1b[0m" << std::endl;
+		std::cerr << "Exception caught: " << ex.what() << std::endl;
 	}
 
 	std::cout << "after \"decGrade\": " << *bob << std::endl;

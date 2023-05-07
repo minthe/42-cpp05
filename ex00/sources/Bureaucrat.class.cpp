@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:30:49 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:57:06 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ Bureaucrat::~Bureaucrat() {}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
 	if (this != &rhs)
-		_grade = rhs.getGrade();
+	{
+		_exception_handling(rhs.getGrade());
+		if (rhs.getGrade() > 0 && rhs.getGrade() < 151)
+			_grade = rhs.getGrade();
+	}
 	return *this;
 }
 
@@ -32,29 +36,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._gr
 Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(0) {}
 Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
 {
-	try
-	{
-		if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << "\x1b[31mGradeTooHighException. Grade set to 1\x1b[0m" << std::endl;
-		_grade = 1;
-		return ;
-	}
-
-	try
-	{
-		if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << "\x1b[31mGradeTooLowException. Grade set to 150\x1b[0m" << std::endl;
-		_grade = 150;
-		return ;
-	}
+	_exception_handling(grade);
 }
 
 // FUNCTIONS
@@ -83,6 +65,33 @@ void		Bureaucrat::decGrade()
 		_grade++;
 	else
 		throw Bureaucrat::GradeTooLowException();
+}
+
+void	Bureaucrat::_exception_handling(const int grade)
+{
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (Bureaucrat::GradeTooHighException& ex)
+	{
+		std::cerr << "Exception caught: " << ex.what() << "\x1b[35m -> Initiated with grade 1\x1b[0m" << std::endl;
+		_grade = 1;
+		return ;
+	}
+
+	try
+	{
+		if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (Bureaucrat::GradeTooLowException& ex)
+	{
+		std::cerr << "Exception caught: " << ex.what() << "\x1b[35m -> Initiated with grade 150\x1b[0m" << std::endl;
+		_grade = 150;
+		return ;
+	}
 }
 
 // OVERLOADS

@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:09:52 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:54:08 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("GradeTooHighException"); // How is this supposed to be used?
+					return ("\x1b[31mGrade too high exception\x1b[0m"); // How is this supposed to be used?
 				}
 		};
 
@@ -38,7 +38,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("GradeTooHighException");
+					return ("\x1b[31mGrade too low exception\x1b[0m");
 				}
 		};
 
@@ -50,6 +50,7 @@ class Bureaucrat
 	private:
 		const std::string	_name;
 		int					_grade;
+		void				_exception_handling(const int grade);
 
 };
 
