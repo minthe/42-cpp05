@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 11:16:28 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:30:37 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 // CONSTRUCTORS
 
-Bureaucrat::Bureaucrat() : _name("Bureaucrat") {}
+Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0) {}
+Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(0) {}
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
@@ -24,7 +25,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 	return *this;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) : Bureaucrat()
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade)
 {
 	*this = src;
 }

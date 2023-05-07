@@ -2,11 +2,10 @@ NAME = bureaucrat
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -lstdc++ -g
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRCS =	sources/main.cpp \
 		sources/Bureaucrat.class.cpp \
-		sources/Bureaucrat.cpp \
 
 OBJS = ${SRCS:.cpp=.o}
 
