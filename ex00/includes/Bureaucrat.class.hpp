@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 18:40:58 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:54:03 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,5 @@ class Bureaucrat
 		int					_grade;
 
 };
+
+std::ostream&	operator<<(std::ostream& o, const Bureaucrat& rhs);

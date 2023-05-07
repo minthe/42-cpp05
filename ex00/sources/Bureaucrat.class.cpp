@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 18:40:29 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:03:59 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			Bureaucrat::getGrade() const
 	return _grade;
 }
 
-void		Bureaucrat::incGrade() // TODO add exceptions
+void		Bureaucrat::incGrade()
 {
 	if (_grade > 1)
 		_grade--;
@@ -50,10 +50,18 @@ void		Bureaucrat::incGrade() // TODO add exceptions
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void		Bureaucrat::decGrade() // TODO add exceptions
+void		Bureaucrat::decGrade()
 {
 	if (_grade < 150)
 		_grade++;
 	else
 		throw Bureaucrat::GradeTooLowException();
+}
+
+// OVERLOADS
+
+std::ostream & operator<<(std::ostream & o, const Bureaucrat& rhs) // TODO Overload not working
+{
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+	return (o);
 }

@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:04:49 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 18:29:48 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:03:23 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 int	main()
 {
 	Bureaucrat* bob = new Bureaucrat("Bob");
-
+	std::cout << *bob << std::endl;
 	std::cout << bob->getName() << std::endl;
 	try
 	{
-		bob->incGrade();
-		if (i > 0) // TODO how to test if the class has an exception?
-			throw std::exception() ;
+		bob->decGrade();
 	}
-	catch (std::exception e)
+	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		
+		std::cout << "handled" << std::endl;
 	}
+	
 	delete bob;
 	return 0;
 }
