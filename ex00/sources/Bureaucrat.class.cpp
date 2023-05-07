@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:03:59 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/07 19:30:49 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // CONSTRUCTORS
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0) {}
-Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(0) {}
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
@@ -28,6 +27,34 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade)
 {
 	*this = src;
+}
+
+Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(0) {}
+Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
+{
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
+		std::cout << "\x1b[31mGradeTooHighException. Grade set to 1\x1b[0m" << std::endl;
+		_grade = 1;
+		return ;
+	}
+
+	try
+	{
+		if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout << "\x1b[31mGradeTooLowException. Grade set to 150\x1b[0m" << std::endl;
+		_grade = 150;
+		return ;
+	}
 }
 
 // FUNCTIONS
