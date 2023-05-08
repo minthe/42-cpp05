@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:40:11 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:25:37 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:31:15 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Form
 		bool		getSigned() const;
 		int			getGradeSign() const;
 		int			getGradeExe() const;
+		void		beSigned();
 
 	private:
 		const std::string	_name;

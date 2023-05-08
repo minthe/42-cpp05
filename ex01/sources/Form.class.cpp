@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:26:29 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:33:06 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,14 @@ void	Form::_exception_handling(const int grade_sign, const int grade_exe)
 	}
 }
 
+void	Form::beSigned()
+{
+	// TODO
+}
+
 // OVERLOADS
 
-std::ostream & operator<<(std::ostream & o, const Form& rhs) // TODO Overload not working
+std::ostream & operator<<(std::ostream & o, const Form& rhs)
 {
 	o << "Form: " << rhs.getName() << ", signed: " << rhs.getSigned() << ", grade_sign: " << rhs.getGradeSign() << ", grade_exe: " << rhs.getGradeExe();
 	return (o);
