@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 15:33:14 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:31:45 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		Bureaucrat::incGrade()
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void		Bureaucrat::decGrade()
+void	Bureaucrat::decGrade()
 {
 	if (_grade < 150)
 		_grade++;
@@ -71,12 +71,18 @@ void		Bureaucrat::decGrade()
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void		Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(Form& form)
 {
-	if (form.getSigned())
-		std::cout << _name << " signed " << form.getName() << std::endl;
-	else
-	 	std::cout << _name << " couldn't sign " << form.getName() << " because..." << std::endl; // TODO code the cause
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException& e)
+	{
+		std::cout << "\x1b[31m" << _name << " couldn't sign '" << form.getName() << "' because \x1b[0m" << e.what() << std::endl;
+	}
+	std::cout << _name << " signed " << form.getName() << std::endl;
+	return ;
 }
 
 // EXCEPTIONS

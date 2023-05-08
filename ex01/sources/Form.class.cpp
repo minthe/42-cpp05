@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 15:31:28 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:24:06 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,12 @@ int		Form::getGradeExe() const
 
 void	Form::beSigned(Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() < 1)
-	{
-		throw Form::GradeTooHighException();
-		return ;
-	}
-	if (bureaucrat.getGrade() > 150)
+	if (bureaucrat.getGrade() > _grade_sign)
 	{
 		throw Form::GradeTooLowException();
 		return ;
 	}
 	_signed = true;
-	bureaucrat.signForm(*this);
 }
 
 int		Form::_setGrade(const int grade)
