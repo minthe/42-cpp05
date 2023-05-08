@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 14:56:31 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 20:19:57 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src.getName()), _grade(thi
 {
 	*this = src;
 }
-
 
 // FUNCTIONS
 
