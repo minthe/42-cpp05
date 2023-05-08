@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 13:33:44 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:56:36 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,13 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("\x1b[31mGrade too high exception\x1b[0m");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("\x1b[31mGrade too low exception\x1b[0m");
-				}
+				virtual const char* what() const throw();
 		};
 
 		std::string			getName() const;
