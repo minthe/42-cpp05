@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:40:11 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 15:19:44 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:42:33 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,16 @@ class Form
 		Form(const std::string name);
 		Form(const std::string name, const int grade_sign, const int grade_exe);
 
-		class GradeTooHighException : public std::exception // TODO is it possible to link this?
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("\x1b[31mGrade too high exception\x1b[0m");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("\x1b[31mGrade too low exception\x1b[0m");
-				}
+				virtual const char* what() const throw();
 		};
 
 		std::string	getName() const;

@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 16:24:06 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:41:58 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,17 @@ int		Form::_setGrade(const int grade)
 	return 150;
 }
 
+// EXCEPTIONS
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("\x1b[31mGrade too high exception\x1b[0m");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return ("\x1b[31mGrade too low exception\x1b[0m");
+}
 
 // OVERLOADS
 
