@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:54:08 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:05:17 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class Bureaucrat
 		Bureaucrat(const std::string name);
 		Bureaucrat(const std::string name, const int grade);
 
-		class GradeTooHighException : public std::exception // TODO is it ok to implement the virtual function here?
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("\x1b[31mGrade too high exception\x1b[0m"); // How is this supposed to be used?
+					return ("\x1b[31mGrade too high exception\x1b[0m");
 				}
 		};
 

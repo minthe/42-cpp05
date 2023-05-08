@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/07 19:57:06 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:12:01 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // CONSTRUCTORS
 
-Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0) {}
+Bureaucrat::Bureaucrat() : _name("default Bureaucrat"), _grade(0) {}
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
