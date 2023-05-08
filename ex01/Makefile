@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = form
 
 CC = c++
 
@@ -6,6 +6,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRCS =	sources/main.cpp \
 		sources/Bureaucrat.class.cpp \
+		sources/Form.class.cpp \
 
 OBJS = ${SRCS:.cpp=.o}
 
