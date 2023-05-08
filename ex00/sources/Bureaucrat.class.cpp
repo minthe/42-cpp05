@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 13:31:47 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:43:11 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 // CONSTRUCTORS
 
 Bureaucrat::Bureaucrat() : _name("default Bureaucrat"), _grade(150) {}
+Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(150) {}
+Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _grade(this->_setGrade(grade)) {}
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
 	if (this != &rhs)
-	{
-		_grade = _setGrade(rhs.getGrade());
-	}
+		_grade = this->_setGrade(rhs.getGrade());
 	return *this;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src.getName()), _grade(_setGrade(src.getGrade()))
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src.getName()), _grade(this->_setGrade(src.getGrade()))
 {
 	*this = src;
 }
 
-Bureaucrat::Bureaucrat(const std::string name) : _name(name), _grade(150) {}
-Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _grade(this->_setGrade(grade)) {}
 
 // FUNCTIONS
 

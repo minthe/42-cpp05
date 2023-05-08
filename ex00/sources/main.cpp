@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:04:49 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 13:29:57 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:51:31 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,29 @@
 
 int	main()
 {
-	Bureaucrat* bob = new Bureaucrat("Bob", 1);
-	std::cout << *bob << std::endl;
-
 	try
 	{
-		Bureaucrat foo("Foo", 151);
-		bob->incGrade();
+		Bureaucrat bob("Bob1", 5);
+		std::cout << bob << std::endl;
+		bob.incGrade();
+		std::cout << "after \"incGrade\": " << bob << std::endl;
 	}
-	catch (const std::exception& e)
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	
+	try
+	{
+		Bureaucrat bob("Bob2", 149);
+		std::cout << bob << std::endl;
+		bob.decGrade();
+		std::cout << "after \"decGrade\": " << bob << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 
-	std::cout << "after \"incGrade\": " << *bob << std::endl;
-	
-	// try
-	// {
-	// 	bob->decGrade();
-	// }
-	// catch (Bureaucrat::GradeTooLowException& ex)
-	// {
-	// 	std::cerr << "Exception caught: " << ex.what() << std::endl;
-	// }
-
-	// std::cout << "after \"decGrade\": " << *bob << std::endl;
-
-	delete bob;
 	return 0;
 }
