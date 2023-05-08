@@ -6,11 +6,12 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:31:40 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 16:31:45 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:56:58 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.class.hpp"
+#include <exception>
 
 // CONSTRUCTORS
 
@@ -77,9 +78,10 @@ void	Bureaucrat::signForm(Form& form)
 	{
 		form.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException& e)
+	catch (const std::exception& e)
 	{
 		std::cout << "\x1b[31m" << _name << " couldn't sign '" << form.getName() << "' because \x1b[0m" << e.what() << std::endl;
+		return ;
 	}
 	std::cout << _name << " signed " << form.getName() << std::endl;
 	return ;
