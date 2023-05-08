@@ -6,12 +6,14 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:40:11 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:31:15 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:38:12 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <exception>
+
+class Bureaucrat;
 
 class Form
 {
@@ -46,7 +48,7 @@ class Form
 		bool		getSigned() const;
 		int			getGradeSign() const;
 		int			getGradeExe() const;
-		void		beSigned();
+		void		beSigned(Bureaucrat&);
 
 	private:
 		const std::string	_name;

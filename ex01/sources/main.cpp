@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:36:00 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:05:57 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:48:51 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 
 int	main()
 {
-	Bureaucrat* bob = new Bureaucrat("Bob", -15);
+	// Bureaucrat* bob = new Bureaucrat("Bob", -15);
 	std::cout << *bob << std::endl;
 
 	try
 	{
+		Bureaucrat* bob = new Bureaucrat("Bob", -15);
 		bob->incGrade();
 	}
 	catch (Bureaucrat::GradeTooHighException& ex)

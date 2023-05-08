@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:33:06 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:43:02 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Form::Form(const Form& src) : _name(src.getName()), _grade_sign(src.getGradeSign
 }
 
 Form::Form(const std::string name) : _name(name), _grade_sign(0), _grade_exe(0) {}
-Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _grade_sign(0), _grade_exe(0)
+Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _grade_sign(grade_sign), _grade_exe(grade_exe)
 {
 	_exception_handling(grade_sign, grade_exe);
 }
