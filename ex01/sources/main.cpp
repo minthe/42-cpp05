@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:36:00 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 12:48:51 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:32:35 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,34 @@
 
 int	main()
 {
-	// Bureaucrat* bob = new Bureaucrat("Bob", -15);
-	std::cout << *bob << std::endl;
-
 	try
 	{
-		Bureaucrat* bob = new Bureaucrat("Bob", -15);
-		bob->incGrade();
+		Bureaucrat bob("Bob1", 1);
+		Form form("Form1", 50, 50);
+		std::cout << bob << std::endl;
+		std::cout << form << std::endl;
+		bob.signForm(form);
+		std::cout << "after \"incGrade\": " << bob << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& ex)
+	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << "Exception caught: " << ex.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-
-	std::cout << "after \"incGrade\": " << *bob << std::endl;
-	
+		
 	try
 	{
-		bob->decGrade();
+		Bureaucrat bob("Bob1", 100);
+		Form form("Form1", 50, 50);
+		std::cout << bob << std::endl;
+		std::cout << form << std::endl;
+		bob.signForm(form);
+		std::cout << "after \"incGrade\": " << bob << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException& ex)
+	catch (Form::GradeTooHighException& e)
 	{
-		std::cerr << "Exception caught: " << ex.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+		
 
-	std::cout << "after \"decGrade\": " << *bob << std::endl;
-
-	delete bob;
 	return 0;
 }

@@ -6,12 +6,15 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:40:11 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 12:38:12 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:19:44 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 #include <exception>
+#include "Bureaucrat.class.hpp"
 
 class Bureaucrat;
 
@@ -48,15 +51,14 @@ class Form
 		bool		getSigned() const;
 		int			getGradeSign() const;
 		int			getGradeExe() const;
-		void		beSigned(Bureaucrat&);
+		void		beSigned(Bureaucrat& bureaucrat);
 
 	private:
 		const std::string	_name;
 		bool				_signed;
 		const int			_grade_sign;
 		const int			_grade_exe;
-		void				_exception_handling(const int grade_sign, const int grade_exe);
-
+		int					_setGrade(const int grade);
 };
 
 std::ostream&	operator<<(std::ostream& o, const Form& rhs);

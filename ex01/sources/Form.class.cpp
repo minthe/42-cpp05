@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 12:43:02 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:31:28 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 // CONSTRUCTORS
 
-Form::Form() : _name("default Form"), _signed(false), _grade_sign(0), _grade_exe(0) {}
+Form::Form() : _name("default Form"), _signed(false), _grade_sign(150), _grade_exe(150) {}
+Form::Form(const std::string name) : _name(name), _grade_sign(150), _grade_exe(150) {}
+Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _grade_sign(this->_setGrade(grade_sign)), _grade_exe(this->_setGrade(grade_exe)) {}
 Form::~Form() {}
 
 Form& Form::operator=(const Form& rhs)
 {
 	if (this != &rhs)
-	{
-		_exception_handling(rhs.getGradeSign(), rhs.getGradeExe());
-	}
+		_signed = rhs._signed;
 	return *this;
 }
 
@@ -31,43 +31,56 @@ Form::Form(const Form& src) : _name(src.getName()), _grade_sign(src.getGradeSign
 	*this = src;
 }
 
-Form::Form(const std::string name) : _name(name), _grade_sign(0), _grade_exe(0) {}
-Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _grade_sign(grade_sign), _grade_exe(grade_exe)
-{
-	_exception_handling(grade_sign, grade_exe);
-}
 
 // FUNCTIONS
 
-void	Form::_exception_handling(const int grade_sign, const int grade_exe)
+std::string Form::getName() const
 {
-	try
-	{
-		if (grade_sign < 1 || grade_exe < 1 )
-			throw Form::GradeTooHighException();
-	}
-	catch (Form::GradeTooHighException& ex)
-	{
-		std::cerr << "Exception caught: " << ex.what() << std::endl;
-		return ;
-	}
-
-	try
-	{
-		if (grade_sign > 150 || grade_exe > 150)
-			throw Form::GradeTooLowException();
-	}
-	catch (Form::GradeTooLowException& ex)
-	{
-		std::cerr << "Exception caught: " << ex.what() << std::endl;
-		return ;
-	}
+	return _name;
 }
 
-void	Form::beSigned()
+bool	Form::getSigned() const
 {
-	// TODO
+	return _signed;
 }
+
+int		Form::getGradeSign() const
+{
+	return _grade_sign;
+}
+
+int		Form::getGradeExe() const
+{
+	return _grade_exe;
+}
+
+void	Form::beSigned(Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() < 1)
+	{
+		throw Form::GradeTooHighException();
+		return ;
+	}
+	if (bureaucrat.getGrade() > 150)
+	{
+		throw Form::GradeTooLowException();
+		return ;
+	}
+	_signed = true;
+	bureaucrat.signForm(*this);
+}
+
+int		Form::_setGrade(const int grade)
+{
+	if (grade > 0 && grade < 151)
+		return grade;
+	else if (grade < 1)
+		throw Form::GradeTooHighException();
+	else if (grade > 150)
+		throw Form::GradeTooLowException();
+	return 150;
+}
+
 
 // OVERLOADS
 
