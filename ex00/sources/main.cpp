@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:04:49 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 13:51:31 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:02:37 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 		bob.incGrade();
 		std::cout << "after \"incGrade\": " << bob << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -35,7 +35,7 @@ int	main()
 		bob.decGrade();
 		std::cout << "after \"decGrade\": " << bob << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
