@@ -6,9 +6,11 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 14:56:36 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:20:09 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <exception>
 #include <iostream>
