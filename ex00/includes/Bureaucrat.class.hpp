@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:01:47 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 11:32:10 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:20:48 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ class Bureaucrat
 				}
 		};
 
-		std::string	getName() const;
-		int			getGrade() const;
-		void		incGrade();
-		void		decGrade();
-		void		signForm();
+		std::string			getName() const;
+		int					getGrade() const;
+		void				incGrade();
+		void				decGrade();
+		void				signForm();
 
 	private:
 		const std::string	_name;
 		int					_grade;
-		void				_exception_handling(const int grade);
+		int					_setGrade(const int grade);
 
 };
 
