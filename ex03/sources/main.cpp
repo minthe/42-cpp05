@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:36:00 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/09 10:24:42 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:40:00 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main()
 	}
 	{
 		std::cout << "\nTEST 4 Intern\n" << std::endl;
-
+		PresidentialPardonForm* president = new PresidentialPardonForm("new");
 		Intern	someRandomIntern;
 		AForm*	rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
@@ -88,6 +88,17 @@ int	main()
 			std::cerr << "Exception caught: " << e.what() << std::endl;
 		}
 		delete rrf;
+		delete president;
+		try
+		{
+			Bureaucrat* bur = new Bureaucrat("bur", 100);
+			std::cout << *bur << std::endl;
+			delete bur;
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << "Exception caught: " << e.what() << std::endl;
+		}
 	}
 	return 0;
 }
