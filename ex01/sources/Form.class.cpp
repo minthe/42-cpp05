@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.class.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/09 13:41:35 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:05:09 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 // CONSTRUCTORS
 
 Form::Form() : _name("default Form"), _signed(false), _grade_sign(150), _grade_exe(150) {}
-Form::Form(const std::string name) : _name(name), _grade_sign(150), _grade_exe(150) {}
-Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _grade_sign(this->_setGrade(grade_sign)), _grade_exe(this->_setGrade(grade_exe)) {}
+Form::Form(const std::string name) : _name(name), _signed(false), _grade_sign(150), _grade_exe(150) {}
+Form::Form(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _signed(false), _grade_sign(this->_setGrade(grade_sign)), _grade_exe(this->_setGrade(grade_exe)) {}
 Form::~Form() {}
+
+Form::Form(const Form& src) : _name(src.getName()), _signed(src.getSigned()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe()) {}
 
 Form& Form::operator=(const Form& rhs)
 {
@@ -26,7 +28,6 @@ Form& Form::operator=(const Form& rhs)
 	return *this;
 }
 
-Form::Form(const Form& src) : _name(src.getName()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe()) {}
 
 // FUNCTIONS
 
