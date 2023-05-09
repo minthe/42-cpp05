@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:02:49 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 23:30:52 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:29:28 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ AForm* Intern::makeForm(std::string form, std::string target)
 	{
 		if (form == forms[i])
 		{
+			std::cout << "Intern creates " << form << std::endl;
 			switch (i)
 			{
 				case 0:
