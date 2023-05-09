@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:40:11 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 23:34:23 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:22:13 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AForm
 		AForm(const std::string name);
 		AForm(const std::string name, const int grade_sign, const int grade_exe);
 
-		class GradeTooHighException : public std::exception // TODO is it possible to link this?
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
