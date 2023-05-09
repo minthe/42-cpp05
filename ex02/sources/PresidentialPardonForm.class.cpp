@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.class.cpp                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:49:23 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 22:51:47 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:51:20 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 	_target = "default";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5)
-{
-	_target = target;
-}
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 

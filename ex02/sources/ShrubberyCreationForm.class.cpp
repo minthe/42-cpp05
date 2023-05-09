@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.class.cpp                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:50:33 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 22:07:59 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:50:50 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 	_target = "default";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137)
-{
-	_target = target;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
