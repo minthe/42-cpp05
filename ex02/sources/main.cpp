@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:36:00 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/09 13:45:23 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:35:38 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main()
 		std::cout << "\nTEST 3 PresidentialPardonForm\n" << std::endl;
 		try
 		{
-			Bureaucrat bob("Bob", 7);
+			Bureaucrat bob("Bob", 1);
 			// bob.decGrade();
 			PresidentialPardonForm pardon("home");
 			PresidentialPardonForm pardon2("home");
