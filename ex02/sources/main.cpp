@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:36:00 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 22:57:04 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:43:27 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main()
 			ShrubberyCreationForm shrubbery("Shrubbery");
 			ShrubberyCreationForm shrubbery2("home");
 			bob.signForm(shrubbery2);
-			shrubbery2 = shrubbery;
+			// shrubbery2 = shrubbery;
 			bob.executeForm(shrubbery2);
 		}
 		catch (std::exception& e)

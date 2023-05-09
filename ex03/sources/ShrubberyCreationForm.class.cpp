@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.class.cpp                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:50:33 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/09 09:56:14 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:40:43 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const // TODO rewrite -> Error on Linux
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getSigned() == false)
 	{

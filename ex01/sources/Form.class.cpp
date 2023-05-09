@@ -6,7 +6,7 @@
 /*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/08 16:41:58 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:41:35 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ Form& Form::operator=(const Form& rhs)
 	return *this;
 }
 
-Form::Form(const Form& src) : _name(src.getName()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe())
-{
-	*this = src;
-}
-
+Form::Form(const Form& src) : _name(src.getName()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe()) {}
 
 // FUNCTIONS
 

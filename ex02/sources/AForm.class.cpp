@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfuhlenb <vfuhlenb@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: vfuhlenb <vfuhlenb@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:39:45 by vfuhlenb          #+#    #+#             */
-/*   Updated: 2023/05/09 10:00:21 by vfuhlenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:42:54 by vfuhlenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ AForm::AForm(const std::string name) : _name(name), _signed(false), _grade_sign(
 AForm::AForm(const std::string name, const int grade_sign, const int grade_exe) : _name(name), _signed(false), _grade_sign(this->setGrade(grade_sign)), _grade_exe(this->setGrade(grade_exe)) {}
 AForm::~AForm() {}
 
-AForm::AForm(const AForm& src) : _name(src.getName()), _signed(src.getSigned()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe())
-{
-	*this = src;
-}
+AForm::AForm(const AForm& src) : _name(src.getName()), _signed(src.getSigned()), _grade_sign(src.getGradeSign()), _grade_exe(src.getGradeExe()) {}
 
 AForm& AForm::operator=(const AForm& rhs)
 {
@@ -57,7 +54,7 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _grade_sign)
 	{
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 		return ;
 	}
 	_signed = true;
@@ -68,9 +65,9 @@ int		AForm::setGrade(const int grade)
 	if (grade > 0 && grade < 151)
 		return grade;
 	else if (grade < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (grade > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	return 150;
 }
 
